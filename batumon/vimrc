@@ -1,0 +1,91 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'majutsushi/tagbar'
+Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'farfanoide/vim-kivy'
+Plugin 'junegunn/fzf.vim'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'vim-scripts/TeX-9'
+Plugin 'tpope/vim-surround'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'tomtom/tcomment_vim'
+
+call vundle#end()
+filetype plugin indent on
+
+" Syntastic
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = "--max-line-length=120"
+
+" YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" Supertab
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+
+" UltiSnips triggering
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Tex-9
+let g:tex_flavor = 'latex'
+let g:tex_nine_config = {
+    \'compiler': 'pdflatex',
+    \'viewer': {'app': 'evince', 'target': 'pdf'},
+    \'leader': ';',
+\}
+
+" General
+syntax on
+set incsearch
+set autoindent
+set cindent
+set showmatch
+set relativenumber
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+set backspace=indent,eol,start
+set list
+set listchars=tab:>-,nbsp:_,trail:.
+set spell spelllang=en_us
+
+" Colors
+set t_Co=256
+colorscheme xoria256
+
+" Mapping
+let mapleader="Space"
+nnoremap <F3> :YcmCompleter GoTo<CR>
+nnoremap ; :
+
+" Basic indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab

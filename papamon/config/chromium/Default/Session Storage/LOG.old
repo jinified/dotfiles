@@ -1,0 +1,24 @@
+2017/01/11-08:42:17.853 7155 Reusing MANIFEST /home/papamon/.config/chromium/Default/Session Storage/MANIFEST-000001
+2017/01/11-08:42:17.853 7155 Recovering log #38
+2017/01/11-08:42:17.891 7155 Reusing old log /home/papamon/.config/chromium/Default/Session Storage/000038.log 
+2017/01/11-09:10:30.958 7546 Level-0 table #42: started
+2017/01/11-09:10:31.095 7546 Level-0 table #42: 28262 bytes OK
+2017/01/11-09:10:31.163 7546 Delete type=0 #38
+2017/01/11-09:11:30.897 7546 Level-0 table #44: started
+2017/01/11-09:11:30.995 7546 Level-0 table #44: 107079 bytes OK
+2017/01/11-09:11:31.063 7546 Delete type=0 #41
+2017/01/11-09:12:50.672 7546 Level-0 table #46: started
+2017/01/11-09:12:50.796 7546 Level-0 table #46: 91708 bytes OK
+2017/01/11-09:12:50.970 7546 Delete type=0 #43
+2017/01/11-09:12:50.971 7546 Compacting 4@0 + 1@1 files
+2017/01/11-09:12:51.452 7546 Generated table #47@0: 986 keys, 854394 bytes
+2017/01/11-09:12:51.452 7546 Compacted 4@0 + 1@1 files => 854394 bytes
+2017/01/11-09:12:51.507 7546 compacted to: files[ 0 1 1 0 0 0 0 ]
+2017/01/11-09:12:51.508 7546 Delete type=2 #42
+2017/01/11-09:12:51.508 7546 Delete type=2 #39
+2017/01/11-09:12:51.508 7546 Delete type=2 #37
+2017/01/11-09:12:51.509 7546 Delete type=2 #44
+2017/01/11-09:12:51.509 7546 Delete type=2 #46
+2017/01/11-09:17:38.508 7546 Level-0 table #49: started
+2017/01/11-09:17:38.663 7546 Level-0 table #49: 104165 bytes OK
+2017/01/11-09:17:38.753 7546 Delete type=0 #45

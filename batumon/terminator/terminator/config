@@ -1,0 +1,28 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+  title_hide_sizetext = True
+  title_transmit_bg_color = "#d56615"
+[keybindings]
+  close_term = <Alt>w
+  close_window = <Alt>F4
+  copy = <Control>c
+  new_terminator = <Alt>Return
+  next_tab = <Primary>l
+  paste = <Primary>v
+  prev_tab = <Primary>h
+  split_horiz = <Primary>minus
+  split_vert = <Primary>apostrophe
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    font = Menlo 12
+    use_system_font = False

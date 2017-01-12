@@ -1,0 +1,19 @@
+2017/01/11-16:14:29.381 680 Reusing MANIFEST /home/papamon/.config/chromium/Default/Local Extension Settings/cfhdojbkjhnklbpkdaibdccddilifddb/MANIFEST-000001
+2017/01/11-16:14:29.381 680 Recovering log #56
+2017/01/11-16:14:29.936 680 Level-0 table #59: started
+2017/01/11-16:14:30.695 680 Level-0 table #59: 2287544 bytes OK
+2017/01/11-16:14:30.798 680 Delete type=0 #56
+2017/01/11-16:16:02.919 1098 Level-0 table #62: started
+2017/01/11-16:16:03.916 1098 Level-0 table #62: 2287783 bytes OK
+2017/01/11-16:16:03.973 1098 Delete type=0 #60
+2017/01/11-16:16:03.979 1098 Compacting 4@0 + 2@1 files
+2017/01/11-16:16:06.093 1098 Generated table #63@0: 1 keys, 2287544 bytes
+2017/01/11-16:16:06.172 1098 Generated table #64@0: 2 keys, 337 bytes
+2017/01/11-16:16:06.172 1098 Compacted 4@0 + 2@1 files => 2287881 bytes
+2017/01/11-16:16:06.228 1098 compacted to: files[ 0 2 1 0 0 0 0 ]
+2017/01/11-16:16:06.229 1098 Delete type=2 #52
+2017/01/11-16:16:06.254 1098 Delete type=2 #59
+2017/01/11-16:16:06.255 1098 Delete type=2 #57
+2017/01/11-16:16:06.256 1098 Delete type=2 #55
+2017/01/11-16:16:06.257 1098 Delete type=2 #62
+2017/01/11-16:16:06.270 1098 Delete type=2 #53

@@ -1,0 +1,29 @@
+2017/01/11-09:53:34.442 3518 Reusing MANIFEST /home/papamon/.config/chromium/Default/Local Extension Settings/cfhdojbkjhnklbpkdaibdccddilifddb/MANIFEST-000001
+2017/01/11-09:53:34.442 3518 Recovering log #43
+2017/01/11-09:53:34.469 3518 Reusing old log /home/papamon/.config/chromium/Default/Local Extension Settings/cfhdojbkjhnklbpkdaibdccddilifddb/000043.log 
+2017/01/11-09:54:51.096 3892 Level-0 table #47: started
+2017/01/11-09:54:52.084 3892 Level-0 table #47: 2287985 bytes OK
+2017/01/11-09:54:52.151 3892 Delete type=0 #43
+2017/01/11-09:55:21.093 3892 Level-0 table #49: started
+2017/01/11-09:55:21.334 3892 Level-0 table #49: 2287545 bytes OK
+2017/01/11-09:55:21.392 3892 Delete type=0 #46
+2017/01/11-10:54:42.230 3892 Level-0 table #51: started
+2017/01/11-10:54:48.762 3892 Level-0 table #51: 2287846 bytes OK
+2017/01/11-10:54:49.798 3892 Delete type=0 #48
+2017/01/11-10:54:49.979 3892 Compacting 4@0 + 2@1 files
+2017/01/11-10:54:58.181 3892 Generated table #52@0: 1 keys, 2287550 bytes
+2017/01/11-10:54:58.805 3892 Generated table #53@0: 2 keys, 335 bytes
+2017/01/11-10:54:58.805 3892 Compacted 4@0 + 2@1 files => 2287885 bytes
+2017/01/11-10:54:59.261 3892 compacted to: files[ 0 2 1 0 0 0 0 ]
+2017/01/11-10:54:59.404 3892 Delete type=2 #49
+2017/01/11-10:54:59.440 3892 Delete type=2 #41
+2017/01/11-10:54:59.483 3892 Delete type=2 #42
+2017/01/11-10:54:59.910 3892 Delete type=2 #44
+2017/01/11-10:54:59.911 3892 Delete type=2 #47
+2017/01/11-10:54:59.911 3892 Delete type=2 #51
+2017/01/11-11:54:35.517 3892 Level-0 table #55: started
+2017/01/11-11:54:35.968 3892 Level-0 table #55: 2287550 bytes OK
+2017/01/11-11:54:36.219 3892 Delete type=0 #50
+2017/01/11-11:54:58.057 3892 Level-0 table #57: started
+2017/01/11-11:55:18.889 3892 Level-0 table #57: 2287782 bytes OK
+2017/01/11-11:55:19.693 3892 Delete type=0 #54

@@ -1,0 +1,73 @@
+{
+   "checksum": "da6cbc87a71572ed5c89980236be1181",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13128483267856922",
+               "id": "7",
+               "name": "Do you use an autocomplete plugin? If yes, which one? : vim",
+               "type": "url",
+               "url": "https://www.reddit.com/r/vim/comments/3n34j4/do_you_use_an_autocomplete_plugin_if_yes_which_one/"
+            }, {
+               "date_added": "13128483267857298",
+               "id": "8",
+               "name": "What do you do use for auto-complete? plugin? or ctrl-n, ctrl-p ? : vim",
+               "type": "url",
+               "url": "https://www.reddit.com/r/vim/comments/2t52yd/what_do_you_do_use_for_autocomplete_plugin_or/"
+            }, {
+               "date_added": "13128483267857682",
+               "id": "9",
+               "name": "Autocomplete and snippet plugin recommendation : neovim",
+               "type": "url",
+               "url": "https://www.reddit.com/r/neovim/comments/40jiq0/autocomplete_and_snippet_plugin_recommendation/"
+            }, {
+               "date_added": "13128483267857949",
+               "id": "10",
+               "name": "What are your must-have configs and plugins? : vim",
+               "type": "url",
+               "url": "https://www.reddit.com/r/vim/comments/3h6tef/what_are_your_musthave_configs_and_plugins/"
+            }, {
+               "date_added": "13128483267858217",
+               "id": "11",
+               "name": "Do we have a good vim auto-completion / hinting plugin? : rust",
+               "type": "url",
+               "url": "https://www.reddit.com/r/rust/comments/3m62ga/do_we_have_a_good_vim_autocompletion_hinting/"
+            }, {
+               "date_added": "13128483267858495",
+               "id": "12",
+               "name": "Vim best way to set-up autocomplete for python 3 : Python",
+               "type": "url",
+               "url": "https://www.reddit.com/r/Python/comments/414vx1/vim_best_way_to_setup_autocomplete_for_python_3/"
+            } ],
+            "date_added": "13128483267855524",
+            "date_modified": "13128483267858495",
+            "id": "6",
+            "name": "/vim",
+            "type": "folder"
+         } ],
+         "date_added": "13128481649055096",
+         "date_modified": "13128483267858785",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13128481649055107",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13128481649055111",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
