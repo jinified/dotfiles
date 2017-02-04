@@ -84,6 +84,8 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vimgo='vim -u ~/.vimrc.go'
+alias astudio='sh /opt/android-studio/bin/studio.sh'
 
 # Aliases declaration
 alias masterbot="export ROS_MASTER_URI="http://192.168.1.130:11311" && export ROS_IP="$(hostname -I)""
@@ -146,3 +148,12 @@ alias topdf="pandoc -s -V geometry:margin=1in -o $1 $2"
 
 # added by Miniconda3 4.2.12 installer
 export PATH="/home/batumon/miniconda3/bin:$PATH"
+
+# Set path for frequently accessed directory 
+setopt autocd
+export CDPATH=$CDPATH:~/Desktop/NUS/:~/github/:~/Projects/bbauv/src/vision/src/vision/:$HOME/Desktop/NUS/
+
+# Setting Golang
+export GOPATH=$HOME/.go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
