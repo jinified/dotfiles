@@ -300,15 +300,24 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 (defun dotspacemacs/user-config ()
-  "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration.
-This is the place where most of your configurations should be done. Unless it is
-explicitly specified that a variable should be set before a package is loaded,
-you should place your code here."
+  ;; Global settings
   (global-linum-mode)
+  ;; Keybindings
+  (define-key global-map (kbd "C-c t a") 'org-agenda-list)
   (setq-default evil-escape-key-sequence "jk")
+  ;; Org mode settings
+  (with-eval-after-load 'org
+    (setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+    (setq org-agenda-files '("~/github/org/"))
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '(
+       (shell . t)
+       (python . t)
+       ))
   )
+  ;; Babel
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
