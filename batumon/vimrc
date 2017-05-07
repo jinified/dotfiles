@@ -6,53 +6,84 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'mattn/calendar-vim'
-Plugin 'vimwiki'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
-Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'farfanoide/vim-kivy'
-Plugin 'junegunn/fzf.vim'
-Plugin 'chase/vim-ansible-yaml'
 Plugin 'vim-scripts/TeX-9'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'ap/vim-buftabline'
+Plugin 'itchyny/lightline.vim'
+Plugin 'ap/vim-css-color'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/echodoc.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'wookiehangover/jshint.vim'
+" Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 filetype plugin indent on
+
+" JSHint
+let JSHintUpdateWriteOnly=1
 
 " Syntastic
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = "--max-line-length=120"
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_always_populate_loc_list = 1
 
 " YCM
-let g:ycm_python_binary_path = '/usr/bin/python2'
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_auto_trigger = 1
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:ycm_python_binary_path = '/usr/bin/python2'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_auto_trigger = 1
+" let g:ycm_min_num_of_chars_for_completion = 2
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
-" CtrlP
+" Echodoc
+set cmdheight=2
+let g:echodoc_enable_at_startup = 1
+
+" NeoCompleteMe
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+" Recommended key-mappings.
+" " <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+"Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTagsCtrlP
+
+set completeopt-=preview
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-" Supertab
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
-
-" UltiSnips triggering
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Tex-9
 let g:tex_flavor = 'latex'
@@ -61,6 +92,9 @@ let g:tex_nine_config = {
     \'viewer': {'app': 'evince', 'target': 'pdf'},
     \'leader': ';',
 \}
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " General
 syntax on
@@ -74,7 +108,7 @@ call matchadd('ColorColumn', '\%81v', 100)
 set backspace=indent,eol,start
 set list
 set listchars=tab:>-,nbsp:_,trail:.
-set spell spelllang=en_us
+let g:indentLine_noConcealCursor=2
 
 " Colors
 set t_Co=256
@@ -91,3 +125,13 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
+" Navigation mapping
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
+
+" Split
+set splitbelow
+set splitright

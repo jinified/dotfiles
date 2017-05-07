@@ -10,7 +10,7 @@ export ZSH=/home/batumon/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="wezm"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,7 +60,7 @@ plugins=(git emoji)
 # User configuration
 
 export SCALA_HOME=/opt/scala
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:$SCALA_HOME/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:$SCALA_HOME/bin:$HOME/.local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -146,14 +146,15 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Pandoc aliases
 alias topdf="pandoc -s -V geometry:margin=1in -o $1 $2"
 
-# added by Miniconda3 4.2.12 installer
-export PATH="/home/batumon/miniconda3/bin:$PATH"
-
 # Set path for frequently accessed directory 
 setopt autocd
-export CDPATH=$CDPATH:~/Desktop/NUS/:~/github/:~/Projects/bbauv/src/vision/src/vision/:$HOME/Desktop/NUS/
+export CDPATH=$CDPATH:~/github/:~/Projects/bbauv/src/vision/src/vision/
 
 # Setting Golang
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+gocd () { cd `go list -f '{{.Dir}}' $1` }
+
+# Connect to NSCC
+alias connscc='ssh a0112213@nus.nscc.sg'
