@@ -13,6 +13,7 @@ emacs
 feh
 git
 google-chrome-stable
+i3
 inotify-tools
 jd-gui
 lib32ncurses5
@@ -72,6 +73,9 @@ ros-kinetic-image-transport-plugins
 rssowl
 ruby
 ruby-dev
+sakura
+stow
+suckless-tools
 tcl-dev
 texlive-full
 tmux
