@@ -171,9 +171,6 @@ bar {
     }
 }
 
-# Lock
-bindsym Mod1+shift+x i3lock
-
 # Auto-mounting
 exec --no-startup-id devmon
 
