@@ -36,7 +36,7 @@ set $sup Mod4
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec lilyterm
+bindsym Mod1+T exec sakura
 
 # kill focused window
 bindsym Mod1+4 kill

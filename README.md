@@ -5,3 +5,4 @@ Stores configurations for different machines
  - [dotfiles.github.io](https://dotfiles.github.io/)
  - [hauleth](https://github.com/hauleth/dotfiles)
  - [webpro](https://github.com/webpro/awesome-dotfiles)
+ - [andornaut](https://github.com/andornaut/dotfiles)
