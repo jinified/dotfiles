@@ -172,7 +172,10 @@ bar {
 }
 
 # Auto-mounting
-exec --no-startup-id devmon
+exec --no-startup-id udiskie -as
+exec --no-startup-id nm-applet
+
+# Launch network manager applet
 
 # Alsa mixer controls
 bindsym Mod1+comma exec --no-startup-id amixer set Master -q 5%-
