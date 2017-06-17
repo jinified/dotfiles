@@ -5,6 +5,7 @@
 4. PDF editor: pdftk
 5. Automount: udiskie
 6. Network Manager: nm-applet
+7. [playerctl](https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb)
 
 
 # Enable bitmap fonts
@@ -26,3 +27,5 @@ sudo systemctl set-default graphical.target
 
 # Prevent nemo file manager taking over desktop when using i3
 gsettings set org.nemo.desktop show-desktop-icons false
+
+# [Better font rendering with Infinality](http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html)
