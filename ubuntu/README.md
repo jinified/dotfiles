@@ -29,3 +29,6 @@ sudo systemctl set-default graphical.target
 gsettings set org.nemo.desktop show-desktop-icons false
 
 # [Better font rendering with Infinality](http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html)
+
+# [Connect with MTP Device](http://www.debugpoint.com/2016/03/how-to-access-android-devices-internal-storage-and-sd-card-in-ubuntu-linux-mint-using-media-transfer-protocol-mtp/)
+1. Use go-mtpfs ~/mnt to access the device
