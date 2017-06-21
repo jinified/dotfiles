@@ -216,3 +216,7 @@ exec google-chrome
 # Pictures
 exec_always compton -f
 exec_always feh --bg-scale ~/Firefox_wallpaper.png
+
+# Screenshot
+bindsym Print exec xfce4-screenshooter
+
