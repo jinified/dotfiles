@@ -6,3 +6,6 @@ Stores configurations for different machines
  - [hauleth](https://github.com/hauleth/dotfiles)
  - [webpro](https://github.com/webpro/awesome-dotfiles)
  - [andornaut](https://github.com/andornaut/dotfiles)
+ - [Croxed](https://github.com/Croxed/dotfiles)
+ - [shellkr](https://github.com/shellkr/dotfiles/tree/master/home)
+ - [hungle88](https://github.com/hungle88/dotfiles)
