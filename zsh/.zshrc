@@ -1,29 +1,37 @@
-setopt GLOB_COMPLETE
+#
+# User configuration sourced by interactive shells
+#
 
-#  Uses 256-color
-export TERM=xterm-256color
+# Source zim
+if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
+  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
+fi
 
-# Path to your oh-my-zsh installation.
-export ZSH=/home/parapa/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="wezm"
-ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
-
-autoload zmv
-plugins=(git emoji)
+alias reload="source ~/.zshrc"
 
 # User configuration
-
-source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 
-# Git
+# ZSH options
+setopt GLOB_COMPLETE
+setopt correct
+setopt autocd               # change dir without cd
+setopt notify               # notify of BG job completion immediately
+setopt printexitvalue       # alert me if something has failed
+setopt autopushd            # automatically append dirs to the push/pop list
+setopt extendedglob         # awesome pattern matching
+setopt promptcr             # ensure a new line before prompt is drawn
+setopt autolist             # list choices on ambigious completion
+setopt listtypes            # show types in completion
+setopt interactivecomments  # escape commands so i can use them later
+setopt histverify           # when using ! cmds, confirm first
+
+# Autoload functions
+autoload zmv # Massive renaming
+
+
+# Git aliases
 # Git wrapper needed to be installed https://github.com/github/hub
 alias git=hub
 alias gpr="git pull --rebase"
@@ -39,11 +47,8 @@ alias grc='git rebase --continue'
 alias grs='git rebase --skip'
 
 # Set path for frequently accessed directory 
-setopt autocd
 export CDPATH=$CDPATH:$HOME/github/
-source /opt/ros/kinetic/setup.zsh
-source $HOME/github/bbauv/devel/setup.zsh
 
 # GOLANG
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$HOME/.stack/snapshots/x86_64-linux/lts-8.14/8.0.2/bin:$HOME/.stack/programs/x86_64-linux/ghc-8.0.2/bin:/usr/local/go/bin:$PATH
+export PATH=$GOPATH/bin:$HOME/.stack/snapshots/x86_64-linux/lts-8.14/8.0.2/bin:$HOME/.stack/programs/x86_64-linux/ghc-8.0.2/bin:/usr/local/go/bin:$HOME/.local/bin:$PATH
