@@ -237,7 +237,7 @@ exec_always compton -f
 exec_always feh --bg-scale ~/Pictures/wallpaper.png
 
 # Music player
-exec sakura --class cmus -e cmus
+# exec sakura --class cmus -e cmus
 
 # Screenshot
 bindsym Print exec xfce4-screenshooter

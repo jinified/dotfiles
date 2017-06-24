@@ -50,5 +50,5 @@ alias grs='git rebase --skip'
 export CDPATH=$CDPATH:$HOME/github/
 
 # GOLANG
-export GOPATH=$HOME/go
+export GOPATH=$HOME/Golang
 export PATH=$GOPATH/bin:$HOME/.stack/snapshots/x86_64-linux/lts-8.14/8.0.2/bin:$HOME/.stack/programs/x86_64-linux/ghc-8.0.2/bin:/usr/local/go/bin:$HOME/.local/bin:$PATH
