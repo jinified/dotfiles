@@ -115,3 +115,5 @@ bindkey '^P' fzf-open-file-or-dir
 # Setup environment for cargo
 source ~/.cargo/env
 
+# Disable touch screen
+xinput disable 11
