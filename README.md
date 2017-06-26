@@ -12,3 +12,4 @@ Stores configurations for different machines
 
 ## Stow instruction
  - grub: stow --target=/etc grub
+ - X11: stow --target=/usr/share/X11 X11
