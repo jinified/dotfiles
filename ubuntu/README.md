@@ -42,3 +42,8 @@ gsettings set org.nemo.desktop show-desktop-icons false
 # How to disable touchscreen
 1. [ArchWiki](https://unix.stackexchange.com/questions/127443/how-do-i-disable-the-touch-screen-on-my-laptop)
 2. [UbuntuForum](https://ubuntuforums.org/showthread.php?t=2209083&highlight=disable+touchscreen)
+
+# Open PGP
+
+1. [Verifying OpenSSL certificate](https://blog.horan.hk/keyserver-howto.html)
+2. [OpenPGP Best Practices](https://riseup.net/en/security/message-security/openpgp/best-practices)
