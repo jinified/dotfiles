@@ -9,6 +9,7 @@
 8. [megaFuse](https://github.com/matteoserva/MegaFuse)
 9. Screenshot tool: xfce4-screenshooter
 10. Screencast tool: SimpleScreenRecorder
+11. ZSH style: [Zim](https://github.com/Eriner/zim)
 
 
 # Enable bitmap fonts
