@@ -36,3 +36,9 @@ gsettings set org.nemo.desktop show-desktop-icons false
 
 # [Connect with MTP Device](http://www.debugpoint.com/2016/03/how-to-access-android-devices-internal-storage-and-sd-card-in-ubuntu-linux-mint-using-media-transfer-protocol-mtp/)
 1. Use go-mtpfs ~/mnt to access the device
+
+# [Changing Network interface to old style](http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html)
+
+# How to disable touchscreen
+1. [ArchWiki](https://unix.stackexchange.com/questions/127443/how-do-i-disable-the-touch-screen-on-my-laptop)
+2. [UbuntuForum](https://ubuntuforums.org/showthread.php?t=2209083&highlight=disable+touchscreen)

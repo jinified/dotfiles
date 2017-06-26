@@ -7,5 +7,5 @@
 # Global Order: zshenv, zprofile, zshrc, zlogin
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  startx
+    startx
 fi

@@ -9,3 +9,6 @@ Stores configurations for different machines
  - [Croxed](https://github.com/Croxed/dotfiles)
  - [shellkr](https://github.com/shellkr/dotfiles/tree/master/home)
  - [hungle88](https://github.com/hungle88/dotfiles)
+
+## Stow instruction
+ - grub: stow --target=/etc grub
