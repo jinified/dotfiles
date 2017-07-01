@@ -1,3 +1,6 @@
+[core]
+    excludesfile = ~/.gitignore
+
 [user]
 	name = jinified
 	email = jinified@gmail.com
