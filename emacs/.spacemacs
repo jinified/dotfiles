@@ -39,6 +39,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      latex
+     bibtex
      helm
      auto-completion
      ;; better-defaults
@@ -50,8 +51,10 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
      syntax-checking
+     (spell-checking :variables
+                     spell-checking-enable-auto-dictionary t
+                     =enable-flyspell-auto-completion= t)
      version-control
      )
    ;; List of additional packages that will be installed without being
@@ -304,16 +307,24 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 (defun dotspacemacs/user-config ()
+  ;; Text Mode
+  (add-hook 'text-mode-hook #'turn-on-flyspell)
   ;; Latex-Mode
   (setq TeX-engine 'xetex)
+  (add-hook 'LaTeX-mode-hook #'turn-on-flyspell)
+  (setq reftex-enable-partial-scans t
+        reftex-save-parse-info t
+        reftex-use-multiple-selection-buffers t)
   ;; Evil Mode
   (turn-on-fci-mode)
   ;; Global settings
   (global-linum-mode)
+  (global-auto-revert-mode t)
   ;; Keybindings
   (define-key global-map (kbd "C-c t a") 'org-agenda-list)
   (setq-default evil-escape-key-sequence "jk")
   ;; Org mode settings
+  (add-hook 'org-mode-hook #'turn-on-flyspell)
   (with-eval-after-load 'org
     (setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
     (setq org-agenda-files '("~/github/org/"))
@@ -327,6 +338,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Python
   (setq python-shell-interpreter "ipython2"
         python-shell-interpreter-args "--simple-prompt -i")
+  ;; Common Lisp
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "sbcl")
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
