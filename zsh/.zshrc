@@ -45,6 +45,20 @@ alias gca='git commit --amend'
 alias grc='git rebase --continue'
 alias grs='git rebase --skip'
 
+# General functions
+
+# Encrypt a file
+function encrypt() { openssl enc -aes-256-cbc -salt -a -in $1 -out $2 ; }
+
+# Decrypt a file
+function decrypt() { openssl enc -aes-256-cbc -d -a -in $1 -out $2 ; }
+
+# Fetch weather forecast
+function weather() { curl "http://wttr.in/$1"; }
+
+# Convert input text into a QR code
+function qrify() { curl "http://qrenco.de/$1"; }
+
 # Set path for frequently accessed directory 
 export CDPATH=$CDPATH:$HOME/github/
 

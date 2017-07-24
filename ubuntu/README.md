@@ -47,3 +47,5 @@ gsettings set org.nemo.desktop show-desktop-icons false
 
 1. [Verifying OpenSSL certificate](https://blog.horan.hk/keyserver-howto.html)
 2. [OpenPGP Best Practices](https://riseup.net/en/security/message-security/openpgp/best-practices)
+
+# [Increase Linux server speed with TCP BBR](https://www.cyberciti.biz/cloud-computing/increase-your-linux-server-internet-speed-with-tcp-bbr-congestion-control/)
