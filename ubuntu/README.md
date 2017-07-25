@@ -49,3 +49,14 @@ gsettings set org.nemo.desktop show-desktop-icons false
 2. [OpenPGP Best Practices](https://riseup.net/en/security/message-security/openpgp/best-practices)
 
 # [Increase Linux server speed with TCP BBR](https://www.cyberciti.biz/cloud-computing/increase-your-linux-server-internet-speed-with-tcp-bbr-congestion-control/)
+
+# Note-taking system
+1. [Note taking script with selecta, ag, fzz](https://gist.github.com/mrnugget/ba36d70ee1afafa45222)
+2. [Leanote](https://github.com/leanote/desktop-app)
+3. [TiddlyWiki5](https://github.com/Jermolene/TiddlyWiki5)
+4. [StandardNotes](https://standardnotes.org/)
+
+
+# Fuzzy Finder
+1. [Ripgrep + FZF](http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/)
+2. [Selecta](https://github.com/garybernhardt/selecta)
