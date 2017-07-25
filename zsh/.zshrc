@@ -30,6 +30,9 @@ setopt histverify           # when using ! cmds, confirm first
 autoload zmv # Massive renaming
 
 
+# Note taking aliases
+alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$(date +%d-%m-%Y).org"
+
 # Git aliases
 # Git wrapper needed to be installed https://github.com/github/hub
 alias git=hub
