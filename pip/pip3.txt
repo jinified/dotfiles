@@ -29,10 +29,12 @@ louis==2.6.4
 lxml==3.5.0
 Mako==1.0.3
 MarkupSafe==0.23
+mps-youtube==0.2.7.1
 numpy==1.12.1
 oauthlib==1.0.3
 onboard==1.2.0
 padme==1.1.1
+pafy==0.5.3.1
 pexpect==4.0.1
 pickleshare==0.7.4
 Pillow==3.1.2

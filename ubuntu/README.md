@@ -10,6 +10,7 @@
 9. Screenshot tool: xfce4-screenshooter
 10. Screencast tool: SimpleScreenRecorder
 11. ZSH style: [Zim](https://github.com/Eriner/zim)
+12. Password generator: diceware, xkcdpass
 
 
 # Enable bitmap fonts
@@ -55,8 +56,27 @@ gsettings set org.nemo.desktop show-desktop-icons false
 2. [Leanote](https://github.com/leanote/desktop-app)
 3. [TiddlyWiki5](https://github.com/Jermolene/TiddlyWiki5)
 4. [StandardNotes](https://standardnotes.org/)
+5. Org-mode journaling
 
-
+```shell
+alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$(date +%d-%m-%Y).org"
+```
 # Fuzzy Finder
 1. [Ripgrep + FZF](http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/)
 2. [Selecta](https://github.com/garybernhardt/selecta)
+
+# Cloud Storage
+1. [Mega.nz](https://mega.nz)
+2. [Hubic](https://hubic.com/en)
+3. [Degoo](https://degoo.com)
+
+# Email providers
+1. [Gmail](https://mail.google.com)
+2. [Tutanota](https://tutanota.com)
+3. [Protonmail](https://protonmail.com/)
+
+# Gathering information
+1. [Feedly](https://feedly.com/)
+2. [Inoreader](https://www.inoreader.com/)
+3. [Alltop](https://alltop.com/)
+4. 
