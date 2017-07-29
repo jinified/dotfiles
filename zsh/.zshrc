@@ -62,6 +62,19 @@ function weather() { curl "http://wttr.in/$1"; }
 # Convert input text into a QR code
 function qrify() { curl "http://qrenco.de/$1"; }
 
+# Backup everything to a specific directory
+function backup() { rsync -avzr --info=progress2 --size-only ~/.backup $1 }
+
+# Compress to gzip format and encrypt with symmetric cipher, AES256
+function encrypt-zip() {
+    tar cvf - "$@" --checkpoint | gpg -c --cipher-algo AES256 --enable-progress-filter > encrypted.tar.gz.gpg
+}
+
+# Decrypt and decompress gzipped folder
+function decrypt-zip() {
+    gpg-zip -d $1
+}
+
 # Set path for frequently accessed directory 
 export CDPATH=$CDPATH:$HOME/github/
 

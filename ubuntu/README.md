@@ -11,6 +11,7 @@
 10. Screencast tool: SimpleScreenRecorder
 11. ZSH style: [Zim](https://github.com/Eriner/zim)
 12. Password generator: diceware, xkcdpass
+13. Cloud storage: [megasync](https://mega.nz/sync)
 
 
 # Enable bitmap fonts
@@ -51,13 +52,6 @@ gsettings set org.nemo.desktop show-desktop-icons false
 
 # [Increase Linux server speed with TCP BBR](https://www.cyberciti.biz/cloud-computing/increase-your-linux-server-internet-speed-with-tcp-bbr-congestion-control/)
 
-# Note-taking system
-1. [Note taking script with selecta, ag, fzz](https://gist.github.com/mrnugget/ba36d70ee1afafa45222)
-2. [Leanote](https://github.com/leanote/desktop-app)
-3. [TiddlyWiki5](https://github.com/Jermolene/TiddlyWiki5)
-4. [StandardNotes](https://standardnotes.org/)
-5. Org-mode journaling
-
 ```shell
 alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$(date +%d-%m-%Y).org"
 ```
@@ -75,8 +69,56 @@ alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$
 2. [Tutanota](https://tutanota.com)
 3. [Protonmail](https://protonmail.com/)
 
-# Gathering information
-1. [Feedly](https://feedly.com/)
-2. [Inoreader](https://www.inoreader.com/)
-3. [Alltop](https://alltop.com/)
-4. 
+# Aggregating information
+
+## Note taking
+
+1. [Google Keep](https://keep.google.com)
+ - Quick note sync using google
+2. Org-mode
+ - Literate programming to reproduce research
+ - Inline image
+3. [Note taking script with selecta, ag, fzz](https://gist.github.com/mrnugget/ba36d70ee1afafa45222)
+ - using vim with fuzzy-finder to navigate notes
+4. Using bullet journal
+
+## Wiki / Blog
+
+1. [TiddlyWiki5](https://github.com/Jermolene/TiddlyWiki5)
+2. [Gollum](https://github.com/gollum/gollum)
+3. Using github pages
+
+## Todo
+
+1. [Dynalist](https://dynalist.io)
+
+## More form of capturing
+
+1. [Trello](https://trello.com)
+2. [Riot chat](https://riot.im)
+3. Telegram group with myself
+
+## Ranking of data inputs
+
+1. Email
+2. Whatsapp messages
+3. FB messages
+4. Malaysia news
+5. World news
+6. Biz / Fin news
+
+## Backup
+
+1. Personal data (encrypted and to the cloud)
+ - Pictures
+ - Contacts
+ - Documents
+2. Work data
+ - dotfiles
+ - installed packages
+ - disk images
+ - notes
+3. Secondary data
+ - books
+ - music
+ - videos

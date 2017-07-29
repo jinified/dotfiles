@@ -222,7 +222,8 @@ bar {
 exec --no-startup-id udiskie -as
 exec --no-startup-id nm-applet
 
-# Launch network manager applet
+# Launch megasync
+exec --no-startup-id megasync
 
 # Alsa mixer controls
 bindsym Mod1+comma exec --no-startup-id amixer set Master -q 5%-
