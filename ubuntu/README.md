@@ -12,6 +12,8 @@
 11. ZSH style: [Zim](https://github.com/Eriner/zim)
 12. Password generator: diceware, xkcdpass
 13. Cloud storage: [megasync](https://mega.nz/sync)
+14. [Installing rust](https://www.rust-lang.org/en-US/install.html)
+15. [FZF](https://github.com/junegunn/fzf#using-git)
 
 
 # Enable bitmap fonts

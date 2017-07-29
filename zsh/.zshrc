@@ -81,3 +81,28 @@ export CDPATH=$CDPATH:$HOME/github/
 # GOLANG
 export GOPATH=$HOME/Golang
 export PATH=$GOPATH/bin:$HOME/.stack/snapshots/x86_64-linux/lts-8.14/8.0.2/bin:$HOME/.stack/programs/x86_64-linux/ghc-8.0.2/bin:/usr/local/go/bin:$HOME/.local/bin:$PATH
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# This is the same functionality as fzf's ctrl-t, except that the file or
+# directory selected is now automatically cd'ed or opened, respectively.
+fzf-open-file-or-dir() {
+  local cmd="command find -L . \
+    \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
+    -o -type f -print \
+    -o -type d -print \
+    -o -type l -print 2> /dev/null | sed 1d | cut -b3-"
+  local out=$(eval $cmd | fzf-tmux --exit-0)
+
+  if [ -f "$out" ]; then
+    $EDITOR "$out" < /dev/tty
+  elif [ -d "$out" ]; then
+    cd "$out"
+    zle reset-prompt
+  fi
+}
+zle     -N   fzf-open-file-or-dir
+bindkey '^P' fzf-open-file-or-dir
