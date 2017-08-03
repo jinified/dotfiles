@@ -227,8 +227,14 @@ exec --no-startup-id megasync
 
 # Alsa mixer controls
 bindsym Mod1+comma exec --no-startup-id amixer set Master -q 5%-
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master -q 5%-
+
+
 bindsym Mod1+period exec --no-startup-id amixer set Master -q 5%+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master -q 5%-
+
 bindsym Mod1+m exec --no-startup-id amixer -D pulse set Master Playback Switch toggle
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master Playback Switch toggle
 
 # Browser
 exec google-chrome

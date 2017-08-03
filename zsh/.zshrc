@@ -33,6 +33,11 @@ autoload zmv # Massive renaming
 # Note taking aliases
 alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$(date +%d-%m-%Y).org"
 
+# FASD aliases
+alias j='fasd_cd -d'     # cd, same functionality as j in autojump
+alias m='f -e mpv' # quick opening files with mplayer
+alias o='a -e xdg-open' # quick opening files with xdg-open
+
 # Git aliases
 # Git wrapper needed to be installed https://github.com/github/hub
 alias git=hub
@@ -80,7 +85,7 @@ export CDPATH=$CDPATH:$HOME/github/
 
 # GOLANG
 export GOPATH=$HOME/Golang
-export PATH=$GOPATH/bin:$HOME/.stack/snapshots/x86_64-linux/lts-8.14/8.0.2/bin:$HOME/.stack/programs/x86_64-linux/ghc-8.0.2/bin:/usr/local/go/bin:$HOME/.local/bin:$PATH
+export PATH=$GOPATH/bin:$HOME/.stack/snapshots/x86_64-linux/lts-8.14/8.0.2/bin:$HOME/.stack/programs/x86_64-linux/ghc-8.0.2/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -106,3 +111,7 @@ fzf-open-file-or-dir() {
 }
 zle     -N   fzf-open-file-or-dir
 bindkey '^P' fzf-open-file-or-dir
+
+# Setup environment for cargo
+source ~/.cargo/env
+

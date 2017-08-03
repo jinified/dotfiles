@@ -31,6 +31,7 @@ inotify-tools
 jd-gui
 jmtpfs
 keepassx
+ledger
 lib32ncurses5
 lib32z1
 libacl1-dev
@@ -77,13 +78,16 @@ libxt-dev
 lldb-3.8
 lua5.2
 lynx
+megasync
 megatools
 mit-scheme
 mpv
 mtp-tools
+musl-tools
 nemo
 numlockx
 openjdk-8-jdk
+pandoc
 parallel
 pdf2svg
 playerctl
@@ -94,6 +98,7 @@ python3-pip
 python-dev
 python-numpy
 python-rosinstall
+qemu-kvm
 ranger
 rar
 rofi

@@ -14,6 +14,8 @@
 13. Cloud storage: [megasync](https://mega.nz/sync)
 14. [Installing rust](https://www.rust-lang.org/en-US/install.html)
 15. [FZF](https://github.com/junegunn/fzf#using-git)
+16. Autojump around directories: [fasd](https://github.com/clvv/fasd)
+17. Plain text accounting: [ledger](https://launchpad.net/~mbudde/+archive/ubuntu/ledger)
 
 
 # Enable bitmap fonts
