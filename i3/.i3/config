@@ -220,10 +220,12 @@ bar {
 
 # Auto-mounting
 exec --no-startup-id udiskie -as
-exec --no-startup-id nm-applet
 
 # Launch megasync
 exec --no-startup-id megasync
+
+# Launch network manager applet
+exec --no-startup-id nm-applet
 
 # Alsa mixer controls
 bindsym Mod1+comma exec --no-startup-id amixer set Master -q 5%-
@@ -255,8 +257,8 @@ bindsym F9 exec --no-startup-id cmus-remote -n
 bindsym F7 exec --no-startup-id cmus-remote -r
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 
 # Exiting the system
 bindsym Mod1+Shift+Delete mode $session
