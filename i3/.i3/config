@@ -227,6 +227,9 @@ exec --no-startup-id megasync
 # Launch network manager applet
 exec --no-startup-id nm-applet
 
+# Auto launch clipboard manager
+exec --no-startup-id xfce4-clipman
+
 # Alsa mixer controls
 bindsym Mod1+comma exec --no-startup-id amixer set Master -q 5%-
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master -q 5%-
@@ -244,9 +247,6 @@ exec google-chrome
 # Pictures
 exec_always compton -f
 exec_always feh --bg-scale ~/Pictures/wallpaper.png
-
-# Music player
-# exec sakura --class cmus -e cmus
 
 # Screenshot
 bindsym Print exec xfce4-screenshooter

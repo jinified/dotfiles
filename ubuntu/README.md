@@ -16,6 +16,8 @@
 15. [FZF](https://github.com/junegunn/fzf#using-git)
 16. Autojump around directories: [fasd](https://github.com/clvv/fasd)
 17. Plain text accounting: [ledger](https://launchpad.net/~mbudde/+archive/ubuntu/ledger)
+18. Screenshot: xfce4-screenshooter
+19. Clipboard manager: xfce4-clipman
 
 
 # Enable bitmap fonts
@@ -85,6 +87,7 @@ alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$
 3. [Note taking script with selecta, ag, fzz](https://gist.github.com/mrnugget/ba36d70ee1afafa45222)
  - using vim with fuzzy-finder to navigate notes
 4. Using bullet journal
+5. CherryTree
 
 ## Wiki / Blog
 

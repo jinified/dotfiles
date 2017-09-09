@@ -38,7 +38,7 @@ let JSHintUpdateWriteOnly=1
 " Syntastic
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = "--max-line-length=120"
+let g:syntastic_python_flake8_args = "--max-line-length=100"
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_always_populate_loc_list = 1
 
@@ -77,8 +77,6 @@ set autoindent
 set cindent
 set showmatch
 set relativenumber
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
 set backspace=indent,eol,start
 set list
 set listchars=tab:>-,nbsp:_,trail:.
@@ -88,6 +86,8 @@ let g:indentLine_noConcealCursor=2
 " Colors
 set t_Co=256
 colorscheme xoria256
+set colorcolumn=100
+highlight ColorColumn ctermbg=7
 
 " Mapping
 let mapleader="Space"
@@ -110,3 +110,5 @@ nnoremap <C-h> <C-W><C-H>
 " Split
 set splitbelow
 set splitright
+
+autocmd FileType latex,tex,md,markdown,text setlocal spell
