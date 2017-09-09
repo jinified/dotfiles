@@ -227,7 +227,7 @@ exec --no-startup-id megasync
 # Launch network manager applet
 exec --no-startup-id nm-applet
 
-# Auto launch clipboard manager
+# Launches Clipboard Manager
 exec --no-startup-id xfce4-clipman
 
 # Alsa mixer controls
