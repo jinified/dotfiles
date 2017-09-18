@@ -30,6 +30,9 @@ setopt histverify           # when using ! cmds, confirm first
 autoload zmv # Massive renaming
 
 
+# Connect to VPN
+alias vpn="sudo openvpn --config ~/.vpn/$USER.ovpn"
+
 # Note taking aliases
 alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$(date +%d-%m-%Y).org"
 
