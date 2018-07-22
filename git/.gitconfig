@@ -2,8 +2,8 @@
     excludesfile = ~/.gitignore
 
 [user]
-	name = jinified
-	email = jinified@gmail.com
+    name = jinified
+    email = jinified@gmail.com
 
 [url "https://github.com/"]
     insteadOf = gh:

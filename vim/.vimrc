@@ -19,13 +19,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'ap/vim-buftabline'
 Plugin 'itchyny/lightline.vim'
 Plugin 'ap/vim-css-color'
-Plugin 'Shougo/echodoc.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'wookiehangover/jshint.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'Shougo/vimproc.vim'
 
 
 
@@ -39,7 +33,6 @@ let JSHintUpdateWriteOnly=1
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = "--max-line-length=100"
-let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_always_populate_loc_list = 1
 
 " YCM
@@ -51,10 +44,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
-
-" Echodoc
-set cmdheight=2
-let g:echodoc_enable_at_startup = 1
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'

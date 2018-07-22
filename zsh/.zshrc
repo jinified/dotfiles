@@ -1,12 +1,19 @@
+#
 # User configuration sourced by interactive shells
 #
 
-# Source zim
-if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
-  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
-fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+# Change default zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Start zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 alias reload="source ~/.zshrc"
+alias pip=pip3
 
 # User configuration
 export LANG=en_US.UTF-8
@@ -30,24 +37,10 @@ setopt histverify           # when using ! cmds, confirm first
 autoload zmv # Massive renaming
 
 
-# Connect to VPN
-alias vpn="sudo openvpn --config ~/.vpn/$USER.ovpn"
-
-# Note taking aliases
-alias tj="touch ~/Notes/journal/$(date +%d-%m-%Y).org && emacs ~/Notes/journal/$(date +%d-%m-%Y).org"
-
-# FASD aliases
-alias j='fasd_cd -d'     # cd, same functionality as j in autojump
-alias m='f -e mpv' # quick opening files with mplayer
-alias o='a -e xdg-open' # quick opening files with xdg-open
-
 # Git aliases
-# Git wrapper needed to be installed https://github.com/github/hub
-alias git=hub
 alias gpr="git pull --rebase"
 alias gpom="git push origin master"
 alias gs="git status -sb"
-alias gh="git hist"
 alias gf='git fetch'
 alias gb='git branch'
 alias ga='git add'
@@ -84,11 +77,11 @@ function decrypt-zip() {
 }
 
 # Set path for frequently accessed directory 
-export CDPATH=$CDPATH:$HOME/github/
+export CDPATH=$CDPATH:$HOME/projects/
 
 # GOLANG
-export GOPATH=$HOME/Golang
-export PATH=$GOPATH/bin:$HOME/.stack/snapshots/x86_64-linux/lts-8.14/8.0.2/bin:$HOME/.stack/programs/x86_64-linux/ghc-8.0.2/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
+export GOPATH=$HOME/golang
+export PATH=/usr/local/go/bin:$HOME/.local/bin:$PATH
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -114,9 +107,3 @@ fzf-open-file-or-dir() {
 }
 zle     -N   fzf-open-file-or-dir
 bindkey '^P' fzf-open-file-or-dir
-
-# Setup environment for cargo
-source ~/.cargo/env
-
-# Disable touch screen
-xinput disable 11
