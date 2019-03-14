@@ -13,7 +13,8 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 alias reload="source ~/.zshrc"
-alias pip=pip3
+# alias pip=pip3
+alias astudio="sudo /opt/android-studio/bin/studio.sh"
 
 # User configuration
 export LANG=en_US.UTF-8
@@ -36,6 +37,8 @@ setopt histverify           # when using ! cmds, confirm first
 # Autoload functions
 autoload zmv # Massive renaming
 
+
+alias vim=nvim
 
 # Git aliases
 alias gpr="git pull --rebase"
@@ -76,34 +79,34 @@ function decrypt-zip() {
     gpg-zip -d $1
 }
 
+# Edit file in vim
+function edit-in-vim() {
+    vim $(fzf ~)
+}
+
 # Set path for frequently accessed directory 
 export CDPATH=$CDPATH:$HOME/projects/
 
 # GOLANG
 export GOPATH=$HOME/golang
-export PATH=/usr/local/go/bin:$HOME/.local/bin:$PATH
+export PATH=/usr/local/go/bin:$HOME/.local/bin:/usr/local:$HOME/.cargo/bin:$PATH
 
-# FZF
+export DATABASE_URL=postgres://anubis:AnubisTheDogGod@localhost:5432/anubis 
+export JWTSecret="AnubisTheDogGod"
+export JWTRefreshSecret="AnubisCanabisMeGusta"
+export MONGO_URI="mongodb://anubis:AnubisTheDogGod@localhost:27017/anubis_users"
+export DRONE_SERVER=https://drone-dev.auto.pink.cat
+export DRONE_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0IjoicGFyYXBhdHJwIiwidHlwZSI6InVzZXIifQ.wXwzZZQBdqUViCseZNop8lkJIJAFuJPyGAV_xAyFtFk
+COWPATH="$COWPATH:$HOME/.cowsay"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/gin/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/gin/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/gin/node_modules/tabtab/.completions/sls.zsh ]] && . /home/gin/node_modules/tabtab/.completions/sls.zsh
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# This is the same functionality as fzf's ctrl-t, except that the file or
-# directory selected is now automatically cd'ed or opened, respectively.
-fzf-open-file-or-dir() {
-  local cmd="command find -L . \
-    \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
-    -o -type f -print \
-    -o -type d -print \
-    -o -type l -print 2> /dev/null | sed 1d | cut -b3-"
-  local out=$(eval $cmd | fzf-tmux --exit-0)
-
-  if [ -f "$out" ]; then
-    $EDITOR "$out" < /dev/tty
-  elif [ -d "$out" ]; then
-    cd "$out"
-    zle reset-prompt
-  fi
-}
-zle     -N   fzf-open-file-or-dir
-bindkey '^P' fzf-open-file-or-dir
