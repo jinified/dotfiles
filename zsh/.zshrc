@@ -89,7 +89,7 @@ export CDPATH=$CDPATH:$HOME/projects/
 
 # GOLANG
 export GOPATH=$HOME/golang
-export PATH=/usr/local/go/bin:$HOME/.local/bin:/usr/local:$HOME/.cargo/bin:$PATH
+export PATH=/usr/local/go/bin:$HOME/.local/bin:/usr/local:$HOME/.cargo/bin:$HOME/.poetry/bin:$HOME/miniconda3/bin:$PATH
 
 export DATABASE_URL=postgres://anubis:AnubisTheDogGod@localhost:5432/anubis 
 export JWTSecret="AnubisTheDogGod"
@@ -110,3 +110,36 @@ COWPATH="$COWPATH:$HOME/.cowsay"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+jupyter_stop () {
+    ssh $1 "pkill -u ubuntu jupyter"
+}
+
+jupyter_start () {
+    nohup ssh -f $1 "cd $2; source .venv/bin/activate; jupyter notebook --no-browser --port=8889"; $(portforward $1)
+}
+
+portforward () {
+    nohup ssh -N -f -L localhost:8889:localhost:8889 $1
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/gin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/gin/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/gin/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/gin/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+setxkbmap -option caps:escape
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/gin/projects/SE2019/de-awani-webhooks/node_modules/tabtab/.completions/slss.zsh ]] && . /home/gin/projects/SE2019/de-awani-webhooks/node_modules/tabtab/.completions/slss.zsh
