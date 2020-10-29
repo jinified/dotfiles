@@ -9,10 +9,17 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'mrk21/yaml-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-fugitive'
+Plug 'sodapopcan/vim-twiggy'
+Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-sensible'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
@@ -29,6 +36,8 @@ Plug 'vim-airline/vim-airline'  " make statusline awesome
 Plug 'vim-airline/vim-airline-themes'  " themes for statusline
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'w0rp/ale'
 
 " Initialize plugin system
 call plug#end()
@@ -44,7 +53,17 @@ call plug#end()
 	set listchars=tab:>-,nbsp:_,trail:.
     set termguicolors
     set autoindent
+    nnoremap ; :
     inoremap jk <ESC>
+    " escape from terminal mode
+    tnoremap <esc> <c-\><c-n>:quit<CR>
+    " Set 100 char line bound
+    set colorcolumn=100
+    highlight ColorColumn ctermbg=7
+    set mouse=n
+    set nobackup
+    set nowritebackup
+    set noswapfile
 
 " Theme
     set termguicolors
@@ -71,6 +90,8 @@ call plug#end()
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
+    " Split a terminal in vim
+    nnoremap <C-w>t :split<bar>:terminal<CR>a
 
 " Search
     nnoremap S :%s///g<Left><Left><Left>
@@ -80,7 +101,7 @@ call plug#end()
 
 " Copy Paste
 	vnoremap <C-c> "*Y :let @+=@*<CR>
-	map <C-p> "+P
+	map <leader>p "+P
 
 " Auto-delete trailing whitespaces
 	autocmd BufWritePre * %s/\s\+$//e
@@ -91,28 +112,15 @@ call plug#end()
 " Goyo plugin makes text more readable when writing prose
 	map <leader>g :Goyo \| set linebreak<CR>
 
-" NerdTree config
-    let g:NERDTreeWinSize=40
-    nmap <C-n> :NERDTreeToggle<CR>
-    let g:NERDTreeGitStatusWithFlags = 1
-    let g:NERDTreeIgnore = ['^node_modules$']
-    " sync open file with NERDTree
-    " " Check if NERDTree is open or active
-    function! IsNERDTreeOpen()
-      return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-    endfunction
+nnoremap <leader>d "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
+inoremap <C-d> <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>
 
-    " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-    " file, and we're not in vimdiff
-    function! SyncTree()
-      if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-        NERDTreeFind
-        wincmd p
-      endif
-    endfunction
+"NerdTree config
 
-    " Highlight currently open buffer in NERDTree
-    autocmd BufEnter * call SyncTree()
+let g:NERDTreeWinSize=40
+nmap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIgnore = ['^node_modules$']
 
 " Airline config
 let g:airline_powerline_fonts = 1
@@ -255,11 +263,67 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " FZF config
 
-nnoremap <Leader>p :Files<Cr>
-nnoremap <C-g> :Rg<Cr>
-nnoremap <Leader>g :Files ~/<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>h :History<CR>
-nnoremap <Leader>t :BTags<CR>
-nnoremap <Leader>T :Tags<CR>
-nnoremap <Leader>a :Ag<Space>
+    nnoremap <C-p> :Files<Cr>
+    nnoremap <Leader>r :Rg<Cr>
+    nnoremap <Leader>g :Files ~/<CR>
+    nnoremap <Leader>b :Buffers<CR>
+    nnoremap <Leader>h :History<CR>
+    nnoremap <Leader>t :BTags<CR>
+    nnoremap <Leader>T :Tags<CR>
+    nnoremap <Leader>a :Ag<Space>
+
+" Markdown preview
+
+    nmap <Leader>m <Plug>MarkdownPreviewToggle
+
+" ALE
+
+    let g:ale_list_window_size = 4
+    let g:ale_sign_column_always = 0
+    " let g:ale_open_list = 1
+
+    let g:ale_sign_error = '‼'
+    let g:ale_sign_warning = '∙'
+    let g:ale_lint_on_text_changed = 'never'
+    let g:ale_lint_on_enter = '0'
+    let g:ale_fixers = {
+    \   'javascript': [
+    \       'eslint'
+    \   ]
+    \}
+    " Automatic fix on save
+    let g:ale_fix_on_save = 1
+    nmap <silent> [c <Plug>(ale_previous_wrap)
+    nmap <silent> ]c <Plug>(ale_next_wrap)
+
+" Git Gutter
+
+
+    " Jump between hunks
+    nmap <Leader>gn <Plug>GitGutterNextHunk  " git next
+    nmap <Leader>gp <Plug>GitGutterPrevHunk  " git previous
+
+    " Use fontawesome icons as signs
+    let g:gitgutter_sign_added = '+'
+    let g:gitgutter_sign_modified = '>'
+    let g:gitgutter_sign_removed = '-'
+    let g:gitgutter_sign_removed_first_line = '^'
+    let g:gitgutter_sign_modified_removed = '<'
+    let g:gitgutter_override_sign_column_highlight = 1
+    highlight SignColumn guibg=bg
+    highlight SignColumn ctermbg=bg
+
+" Fugitive
+    nnoremap <Leader>gs :Gstatus<CR>
+    nnoremap <Leader>gd :Gdiff<CR>
+    nnoremap <Leader>gb :Gblame<CR>
+    nnoremap <Leader>gL :exe ':!cd ' . expand('%:p:h') . '; git la'<CR>
+    nnoremap <Leader>gl :exe ':!cd ' . expand('%:p:h') . '; git las'<CR>
+
+" CTags
+
+    set tags=./tags,tags,~/projects/tags;
+
+" YAML
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

@@ -12,9 +12,22 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Start zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
+alias copy="xsel -i -b"
 alias reload="source ~/.zshrc"
 # alias pip=pip3
 alias astudio="sudo /opt/android-studio/bin/studio.sh"
+alias eks-helm="kubectl config use-context tiller"
+alias eks-nonprod="export AWS_PROFILE=astro-de-nonprod; kubectl config use-context 1602045626249059991@k8-de-nonprod.ap-southeast-1.eksctl.io"
+alias eks-dev="export AWS_PROFILE=k8-de-nonprod; kubectl config use-context dev-k8-de-nonprod.ap-southeast-1.eksctl.io"
+
+alias k-denonprod="export AWS_PROFILE=ecosystemnonprod-dev; kubectl config use-context de-nonprod"
+alias k-deprod="export AWS_PROFILE=k8-de-prod; kubectl config use-context de-prod-admin"
+alias k-loadtest="export AWS_PROFILE=ecosystemnonprod-dev; kubectl config use-context de-loadtest"
+alias kk="kubectl-insecure"
+
+function kubectl-insecure(){
+    kubectl --insecure-skip-tls-verify ${@:1}
+}
 
 # User configuration
 export LANG=en_US.UTF-8
@@ -84,14 +97,14 @@ function edit-in-vim() {
     vim $(fzf ~)
 }
 
-# Set path for frequently accessed directory 
+# Set path for frequently accessed directory
 export CDPATH=$CDPATH:$HOME/projects/
 
 # GOLANG
 export GOPATH=$HOME/golang
-export PATH=/usr/local/go/bin:$HOME/.local/bin:/usr/local:$HOME/.cargo/bin:$HOME/.poetry/bin:$HOME/miniconda3/bin:$PATH
+export PATH=/usr/local/go/bin:$HOME/.local/bin:/usr/local:$HOME/.cargo/bin:$HOME/.poetry/bin:$HOME/miniconda3/bin:$HOME/Android/Sdk/platform-tools:$HOME/.pyenv/bin:$GOPATH/bin:$PATH
 
-export DATABASE_URL=postgres://anubis:AnubisTheDogGod@localhost:5432/anubis 
+export DATABASE_URL=postgres://anubis:AnubisTheDogGod@localhost:5432/anubis
 export JWTSecret="AnubisTheDogGod"
 export JWTRefreshSecret="AnubisCanabisMeGusta"
 export MONGO_URI="mongodb://anubis:AnubisTheDogGod@localhost:27017/anubis_users"
@@ -108,38 +121,82 @@ COWPATH="$COWPATH:$HOME/.cowsay"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" ~ 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_COMMAND"
 
 jupyter_stop () {
     ssh $1 "pkill -u ubuntu jupyter"
 }
 
 jupyter_start () {
-    nohup ssh -f $1 "cd $2; source .venv/bin/activate; jupyter notebook --no-browser --port=8889"; $(portforward $1)
+    nohup ssh -f $1 "cd $2; jupyter notebook --no-browser --port=8889"; $(portforward $1)
 }
 
 portforward () {
-    nohup ssh -N -f -L localhost:8889:localhost:8889 $1
+    nohup ssh -N -f -L localhost:8080:localhost:8889 $1
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/gin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/gin/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/gin/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/gin/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+setup_kops () {
+    export AWS_ACCESS_KEY_ID=AKIAY3V5FAIFMIXC2FIV
+    export AWS_SECRET_ACCESS_KEY=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
+}
+
+setup_go () {
+    local repo = $1
+    go mod init $repo
+    mkdir {cmd,internal,pkg}
+}
 
 setxkbmap -option caps:escape
 
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /home/gin/projects/SE2019/de-awani-webhooks/node_modules/tabtab/.completions/slss.zsh ]] && . /home/gin/projects/SE2019/de-awani-webhooks/node_modules/tabtab/.completions/slss.zsh
+
+for f in `ls ~/.kube/config/ | grep kubeconfig`
+do
+    export KUBECONFIG="$HOME/.kube/config/$f:$KUBECONFIG";
+done
+
+export FZF_DEFAULT_OPTS="--ansi --bind up:preview-up,down:preview-down --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+
+# added by travis gem
+[ ! -s /home/gin/.travis/travis.sh ] || source /home/gin/.travis/travis.sh
+
+function pretty_csv {
+    column -t -s, -n "$@" | less -F -S -X -K
+}
+
+function get_bindings(){
+
+    kubectl get rolebindings,clusterrolebindings \
+      -n $1 \
+      -o custom-columns='KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind=="ServiceAccount")].name' --insecure-skip-tls-verify | grep $2
+}
+# pyenv config
+# Set virtualenv dir
+export WORKON_HOME=~/.ve
+# Initialize pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+# Initialize pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
+# Get the poetry's full path
+POETRY_CMD=$(which poetry)
+# Allow poetry to load .env files
+function poetry() {
+    # Define the full command. i.e. poetry [run|shell|version]
+    POETRY_FULL_CMD=($POETRY_CMD "$@")
+
+    # if POETRY_DONT_LOAD_ENV is *not* set, then load .env if it exists
+    # also, only loads when for "run" and "shell" commands.
+    if [[ -z "$POETRY_DONT_LOAD_ENV" && -f .env && ("$1" = "run" || "$1" = "shell") ]]; then
+        echo 'Loading .env environment variables…'
+        env $(grep -v '^#' .env | tr -d ' ' | xargs) $POETRY_FULL_CMD
+    else
+        $POETRY_FULL_CMD
+    fi
+}
+export PIP_REQUIRE_VIRTUALENV=true
+export HISTTIMEFORMAT='%FT%T%z: ' #  YYYY-MM-DDTHH:MM:SS±0000
